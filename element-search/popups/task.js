@@ -2,10 +2,6 @@ let modalMain = document.getElementById("modal_main");
 
 modalMain.className = "modal modal_active";
 
-let modalClose = document.getElementsByClassName("modal__close");
-
-let arrModalClose=Array.from(modalClose);
-
 
 let showSuccess=document.getElementsByClassName("show-success");
 
@@ -17,30 +13,33 @@ arrShowSuccess[0].onclick=function(){
 	let modalSuccess=document.getElementById("modal_success");
 	
 	modalSuccess.className="modal modal_active";
+  
+  let modalMain3 = document.getElementById("modal_main");
 
+  modalMain3.className = "modal";
+
+ }
+
+
+let modalCloseTimes=document.getElementsByClassName("modal__close_times");
+let arrMoodalCloseTimes=Array.from(modalCloseTimes);
+
+
+for (let i=0; i<arrMoodalCloseTimes.length; i++){
+ 
+  arrMoodalCloseTimes[i].onclick = function(){
+  
+     let df=arrMoodalCloseTimes[i].closest('div.modal');
+
+     df.className="modal";
+
+   }
 }
 
-arrModalClose[2].onclick = function(){
-
-  let modalMain2 = document.getElementById("modal_success");
-
-  modalMain2.className = "modal";
-
-  let modalMain1 = document.getElementById("modal_main");
-
-    modalMain1.className = "modal";
 
 
-}
 
 
-arrModalClose[0].onclick = function(){
-
-  let modalMain1 = document.getElementById("modal_main");
-
-    modalMain1.className = "modal";
-
-}
 
 
 
