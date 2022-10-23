@@ -1,46 +1,39 @@
-let sliderNext=document.getElementsByClassName("slider__arrow_next");
+let sliderNext=document.getElementsByClassName('slider__arrow_next');
 let arrSliderNext=Array.from(sliderNext);
 
-let sliderPrev=document.getElementsByClassName("slider__arrow_prev");
+let sliderPrev=document.getElementsByClassName('slider__arrow_prev');
 let arrSliderPrev=Array.from(sliderPrev);
 
-arrSliderNext[0].onclick = function(){
+let sliderItem=document.getElementsByClassName('slider__item');
+const arrSliderItem=Array.from(sliderItem);
 
-  let sliderItemNext=document.getElementsByClassName("slider__item");
-  let arrSliderItemNext=Array.from(sliderItemNext);
+arrSliderNext[0].onclick = function() {
 
-  let indexItemActiveNext=arrSliderItemNext.findIndex((element)=> element.className=='slider__item slider__item_active');
+  let indexItemActiveNext=arrSliderItem.findIndex((element)=> element.className=='slider__item slider__item_active');
+  arrSliderItem[indexItemActiveNext].className='slider__item';
+  indexItemActiveNext++;
 
-  arrSliderItemNext[indexItemActiveNext].className='slider__item';
-
-    indexItemActiveNext++;
-    if (indexItemActiveNext>=arrSliderItemNext.length){
-       indexItemActiveNext=0;
-   }
+  if (indexItemActiveNext>=arrSliderItem.length) {
+    indexItemActiveNext=0;
+  }
   
-  arrSliderItemNext[indexItemActiveNext].className='slider__item slider__item_active';
-
- }
+  arrSliderItem[indexItemActiveNext].className='slider__item slider__item_active';
+}
          
 
-arrSliderPrev[0].onclick = function(){
+arrSliderPrev[0].onclick = function() {
 
-  let sliderItemPrev=document.getElementsByClassName("slider__item");
-  let arrSliderItemPrev=Array.from(sliderItemPrev);
-
-  let indexItemActivePrev=arrSliderItemPrev.findIndex((element)=> element.className=='slider__item slider__item_active');   
+  let indexItemActivePrev=arrSliderItem.findIndex((element)=> element.className=='slider__item slider__item_active');   
+  arrSliderItem[indexItemActivePrev].className='slider__item';
   
-  arrSliderItemPrev[indexItemActivePrev].className='slider__item';
+  indexItemActivePrev--;
   
-  indexItemActivePrev--
+  if(indexItemActivePrev<0) {
+     indexItemActivePrev=arrSliderItem.length-1;
+  } 
   
-  f(indexItemActivePrev<0){
-     indexItemActivePrev=arrSliderItemPrev.length-1;
-   } 
-  
-  arrSliderItemPrev[indexItemActivePrev].className='slider__item slider__item_active';
-
- }
+  arrSliderItem[indexItemActivePrev].className='slider__item slider__item_active';
+}
 
 
 
